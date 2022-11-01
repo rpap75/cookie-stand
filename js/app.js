@@ -1,9 +1,12 @@
+'use strict';
+
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 // #pragma: GLOBAL VARIABLES + WINDOW INTO DOM
 
 let section = document.getElementById('sales');
 console.log(section);
+
 // #pragma: HELPER FUNCTIONS - UTILITIES
 
 function randomNum(min, max) {
@@ -13,11 +16,11 @@ function randomNum(min, max) {
 // #pragma: OBJECT LITERALS
 
 let seattle = {
-  total: 0,
   name: 'Seattle',
   minCustomer: 23,
   maxCustomer: 65,
   avgCookie: 6.3,
+  total: 0,
   cookieNums: [],
   rdmCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -47,11 +50,11 @@ let seattle = {
 };
 
 let tokyo = {
-  total: 0,
   name: 'Tokyo',
   minCustomer: 3,
   maxCustomer: 24,
   avgCookie: 1.2,
+  total: 0,
   cookieNums: [],
   rdmCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -80,13 +83,12 @@ let tokyo = {
   }
 };
 
-
 let dubai = {
-  total: 0,
   name: 'Dubai',
   minCustomer: 11,
   maxCustomer: 38,
   avgCookie: 3.7,
+  total: 0,
   cookieNums: [],
   rdmCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -116,11 +118,11 @@ let dubai = {
 };
 
 let paris = {
-  total: 0,
   name: 'Paris',
   minCustomer: 20,
   maxCustomer: 38,
   avgCookie: 2.3,
+  total: 0,
   cookieNums: [],
   rdmCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -150,11 +152,11 @@ let paris = {
 };
 
 let lima = {
-  total: 0,
   name: 'Lima',
   minCustomer: 2,
   maxCustomer: 16,
   avgCookie: 4.6,
+  total: 0,
   cookieNums: [],
   rdmCookies: function () {
     for (let i = 0; i < hours.length; i++) {
@@ -182,24 +184,25 @@ let lima = {
     list.appendChild(totalLi);
   }
 };
+
 // #pragma: EXECUTABLE CODE
 
 seattle.rdmCookies();
-console.log(seattle);
+// console.log(seattle);
 seattle.displayResults();
 
 tokyo.rdmCookies();
-console.log(tokyo);
+// console.log(tokyo);
 tokyo.displayResults();
 
 dubai.rdmCookies();
-console.log(dubai);
+// console.log(dubai);
 dubai.displayResults();
 
 paris.rdmCookies();
-console.log(paris);
+// console.log(paris);
 paris.displayResults();
 
 lima.rdmCookies();
-console.log(lima);
+// console.log(lima);
 lima.displayResults();
