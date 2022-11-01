@@ -5,7 +5,7 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 // #pragma: GLOBAL VARIABLES + WINDOW INTO DOM
 
 let section = document.getElementById('sales');
-console.log(section);
+// console.log(section);
 
 // #pragma: HELPER FUNCTIONS - UTILITIES
 
@@ -44,7 +44,7 @@ let seattle = {
       list.appendChild(li);
     }
     let totalLi = document.createElement('li');
-    totalLi.textContent = `${this.total}`;
+    totalLi.textContent = `Total: ${this.total}`;
     list.appendChild(totalLi);
   }
 };
@@ -78,7 +78,7 @@ let tokyo = {
       list.appendChild(li);
     }
     let totalLi = document.createElement('li');
-    totalLi.textContent = `${this.total}`;
+    totalLi.textContent = `Total: ${this.total}`;
     list.appendChild(totalLi);
   }
 };
@@ -112,7 +112,7 @@ let dubai = {
       list.appendChild(li);
     }
     let totalLi = document.createElement('li');
-    totalLi.textContent = `${this.total}`;
+    totalLi.textContent = `Total: ${this.total}`;
     list.appendChild(totalLi);
   }
 };
@@ -146,7 +146,7 @@ let paris = {
       list.appendChild(li);
     }
     let totalLi = document.createElement('li');
-    totalLi.textContent = `${this.total}`;
+    totalLi.textContent = `Total: ${this.total}`;
     list.appendChild(totalLi);
   }
 };
@@ -180,7 +180,7 @@ let lima = {
       list.appendChild(li);
     }
     let totalLi = document.createElement('li');
-    totalLi.textContent = `${this.total}`;
+    totalLi.textContent = `Total: ${this.total}`;
     list.appendChild(totalLi);
   }
 };
