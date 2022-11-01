@@ -9,12 +9,16 @@ h1, h2, h3 {
   color: aqua;
 }
 
-/* .seattle {
+ul {
   font-family: 'Noto Sans', sans-serif;
   color: antiquewhite;
-}
+} 
 
 text {
   font-family: 'Epilogue', sans-serif;
   color: bisque;
+}
+
+/* .location-list {
+  
 } */
