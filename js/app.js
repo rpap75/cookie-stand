@@ -4,7 +4,9 @@
 
 let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
-let section = document.getElementById('sales');
+let allStores = [];
+
+// let section = document.getElementById('sales');
 
 let tableElem = document.getElementById('table');
 
@@ -23,6 +25,7 @@ function Store(name, minCustomer, maxCustomer, avgCookie) {
   this.avgCookie = avgCookie;
   this.total = 0;
   this.cookieNums = [];
+  allStores.push(this);
 }
 Store.prototype.rdmCookies = function () {
   for (let i = 0; i < hours.length; i++) {
@@ -53,6 +56,7 @@ let tokyo = new Store('Tokyo', 3, 24, 1.2);
 let dubai = new Store('Dubai', 11, 38, 3.7);
 let paris = new Store('Paris', 20, 38, 2.3);
 let lima = new Store('Lima', 2, 16, 4.6);
+console.log(allStores);
 function makeHeader() {
   let tableRow = document.createElement('tr');
   tableElem.appendChild(tableRow);
@@ -64,9 +68,38 @@ function makeHeader() {
     tableRow.appendChild(tableData);
   }
 }
-makeHeader();
-makeFooter();
+function makeFooter() {
+  let tableRow = document.createElement('tr');
+
+  let tableHeader = document.createElement('th');
+  tableHeader.textContent = 'hourly total location';
+  tableRow.appendChild(tableHeader);
+
+  let grandTotal = 0;
+
+  for (let i = 0; i < hours.length; i++) {
+    let hourlyTotal = 0;
+
+    for (let j = 0; j < allStores.length; j++) {
+      hourlyTotal += allStores[j].cookieNums[i];
+    }
+
+    let tdElement = document.createElement('th');
+    tdElement.textContent = hourlyTotal;
+    tableRow.appendChild(tdElement);
+
+    grandTotal += hourlyTotal;
+  }
+
+  let totalElement = document.createElement('th');
+  totalElement.textContent = grandTotal;
+  tableRow.appendChild(totalElement);
+
+  tableElem.appendChild(tableRow);
+}
 // #pragma: EXECUTABLE CODE
+
+makeHeader();
 
 seattle.rdmCookies();
 seattle.render();
@@ -83,4 +116,5 @@ paris.render();
 lima.rdmCookies();
 lima.render();
 
+makeFooter();
 
