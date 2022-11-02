@@ -6,8 +6,6 @@ let hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '
 
 let allStores = [];
 
-// let section = document.getElementById('sales');
-
 let tableElem = document.getElementById('table');
 
 // #pragma: HELPER FUNCTIONS - UTILITIES
