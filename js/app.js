@@ -43,6 +43,7 @@ Store.prototype.render = function () {
   for (let i = 0; i < this.cookieNums.length; i++) {
     let tableData = document.createElement('td');
     tableData.textContent = this.cookieNums[i];
+    tableData.className = 'Table-Data';
     tableRow.appendChild(tableData);
   }
   let totalRow = document.createElement('td');
@@ -62,6 +63,7 @@ function makeHeader() {
   tableRow.appendChild(firstCell);
   for (let i = 0; i < hours.length; i++) {
     let tableData = document.createElement('td');
+    tableData.className = 'Hours';
     tableData.textContent = hours[i];
     tableRow.appendChild(tableData);
   }
