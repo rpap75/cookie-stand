@@ -28,6 +28,7 @@ function Store(name, minCustomer, maxCustomer, avgCookie) {
 Store.prototype.rdmCookies = function () {
   for (let i = 0; i < hours.length; i++) {
     let custNum = randomNum(this.minCustomer, this.maxCustomer);
+
     let cookieNum = Math.round(custNum * this.avgCookie);
     this.total += cookieNum;
     this.cookieNums.push(cookieNum);
@@ -55,24 +56,30 @@ let tokyo = new Store('Tokyo', 3, 24, 1.2);
 let dubai = new Store('Dubai', 11, 38, 3.7);
 let paris = new Store('Paris', 20, 38, 2.3);
 let lima = new Store('Lima', 2, 16, 4.6);
-console.log(allStores);
 function makeHeader() {
+
   let tableRow = document.createElement('tr');
   tableElem.appendChild(tableRow);
+
   let firstCell = document.createElement('td');
+  firstCell.textContent = 'Location';
   tableRow.appendChild(firstCell);
+
   for (let i = 0; i < hours.length; i++) {
     let tableData = document.createElement('td');
     tableData.className = 'Hours';
     tableData.textContent = hours[i];
     tableRow.appendChild(tableData);
   }
+  let lastCell = document.createElement('td');
+  lastCell.textContent = 'Daily Total';
+  tableRow.appendChild(lastCell);
 }
 function makeFooter() {
   let tableRow = document.createElement('tr');
 
   let tableHeader = document.createElement('th');
-  tableHeader.textContent = 'hourly total location';
+  tableHeader.textContent = 'Hourly Total';
   tableRow.appendChild(tableHeader);
 
   let grandTotal = 0;
