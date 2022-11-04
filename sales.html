@@ -10,7 +10,8 @@
   <title>Home</title>
 </head>
 
-<body style="    background-image:url(../img/fish.jpg);" class="fishimg">
+<body>
+  <div id="threeFish" alt="fishimg"></div>
   <header>
     <nav>
       <ul>
@@ -19,10 +20,33 @@
         <li><a href="order-processing.html">Order Processing</a></li>
       </ul>
     </nav>
-    <h1 class="maintitle">Salmon Cookies</h1>
+    <h1 class="mainTitle">Salmon Cookies</h1>
   </header>
   <main>
-    <table id ="table"></table>
+    <table id="table"></table>
+
+    <form id="formStore">
+      <fieldset>
+        <legend id="newTitle">Add New Store Here</legend>
+        <label for="storeLocation">Store Location:</label>
+        <input id="storeLocation" type="text" name="storeLocation">
+
+        <label for="minCustPerHr">Minimum Customers Per Hour:</label>
+        <input id="minCustPerHr" type="text" name="minCustPerHr">
+
+        <label for="maxCustPerHr">Maximum Customers Per Hour:</label>
+        <input id="maxCustPerHr" type="text" name="maxCustPerHr">
+
+        <label for="avgCookPerCust">Average Cookies Per Custome:</label>
+        <input id="avgCookPerCust" type="text" name="avgCookiePerCust">
+
+      </fieldset>
+
+      <button id="button" type="submit">Submit New Store:</button>
+
+
+    </form>
+
   </main>
   <footer>
     <div class="allContact">
