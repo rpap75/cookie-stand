@@ -8,6 +8,8 @@ let allStores = [];
 
 let tableElem = document.getElementById('table');
 
+let formStore = document.getElementById('formStore');
+
 // #pragma: HELPER FUNCTIONS - UTILITIES
 
 function randomNum(min, max) {
@@ -19,23 +21,29 @@ function randomNum(min, max) {
 
   let firstCell = document.createElement('td');
   firstCell.textContent = 'Location';
+  firstCell.className = 'location';
   tableRow.appendChild(firstCell);
 
   for (let i = 0; i < hours.length; i++) {
     let tableData = document.createElement('td');
-    tableData.className = 'Hours';
+    tableData.className = 'hours';
     tableData.textContent = hours[i];
     tableRow.appendChild(tableData);
   }
   let lastCell = document.createElement('td');
+  lastCell.className = 'dailyTotal';
   lastCell.textContent = 'Daily Total';
   tableRow.appendChild(lastCell);
 }
+
 function makeFooter() {
   let tableRow = document.createElement('tr');
+  tableRow.className = 'footerRow';
+  tableRow.id = 'footerRow';
 
   let tableHeader = document.createElement('th');
-  tableHeader.textContent = 'Hourly Total';
+  tableHeader.className = 'hourlyTotal';
+  tableHeader.textContent = 'Hour Total';
   tableRow.appendChild(tableHeader);
 
   let grandTotal = 0;
@@ -48,6 +56,7 @@ function makeFooter() {
     }
 
     let tdElement = document.createElement('th');
+    tdElement.className = 'hourTotal';
     tdElement.textContent = hourlyTotal;
     tableRow.appendChild(tdElement);
 
@@ -55,6 +64,7 @@ function makeFooter() {
   }
 
   let totalElement = document.createElement('th');
+  totalElement.className = 'grandTotal';
   totalElement.textContent = grandTotal;
   tableRow.appendChild(totalElement);
 
@@ -91,7 +101,7 @@ Store.prototype.render = function () {
   for (let i = 0; i < this.cookieNums.length; i++) {
     let tableData = document.createElement('td');
     tableData.textContent = this.cookieNums[i];
-    tableData.className = 'Table-Data';
+    tableData.className = 'nums';
     tableRow.appendChild(tableData);
   }
   let totalRow = document.createElement('td');
@@ -125,3 +135,22 @@ lima.render();
 
 makeFooter();
 
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let location = event.target.storeLocation.value;
+
+  let minCustPerHr = event.target.minCustPerHr.value;
+  let maxCustPerHr = event.target.maxCustPerHr.value;
+  let avgCookPerCust = event.target.avgCookPerCust.value;
+
+  let newStore = new Store(location, minCustPerHr, maxCustPerHr, avgCookPerCust);
+  newStore.rdmCookies();
+  newStore.render();
+  formStore.reset();
+  document.getElementById('footerRow').remove();
+  makeFooter();
+
+}
+
+formStore.addEventListener('submit', handleSubmit);
