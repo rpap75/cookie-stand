@@ -10,6 +10,26 @@ let tableElem = document.getElementById('table');
 
 let formStore = document.getElementById('formStore');
 
+//#pragma: EVENT HANDLERS
+
+function handleSubmit(event) {
+  event.preventDefault();
+
+  let location = event.target.storeLocation.value;
+
+  let minCustPerHr = event.target.minCustPerHr.value;
+  let maxCustPerHr = event.target.maxCustPerHr.value;
+  let avgCookPerCust = event.target.avgCookPerCust.value;
+
+  let newStore = new Store(location, minCustPerHr, maxCustPerHr, avgCookPerCust);
+  newStore.rdmCookies();
+  newStore.render();
+  formStore.reset();
+  document.getElementById('footerRow').remove();
+  makeFooter();
+
+}
+
 // #pragma: HELPER FUNCTIONS - UTILITIES
 
 function randomNum(min, max) {
@@ -134,23 +154,5 @@ lima.rdmCookies();
 lima.render();
 
 makeFooter();
-
-function handleSubmit(event) {
-  event.preventDefault();
-
-  let location = event.target.storeLocation.value;
-
-  let minCustPerHr = event.target.minCustPerHr.value;
-  let maxCustPerHr = event.target.maxCustPerHr.value;
-  let avgCookPerCust = event.target.avgCookPerCust.value;
-
-  let newStore = new Store(location, minCustPerHr, maxCustPerHr, avgCookPerCust);
-  newStore.rdmCookies();
-  newStore.render();
-  formStore.reset();
-  document.getElementById('footerRow').remove();
-  makeFooter();
-
-}
 
 formStore.addEventListener('submit', handleSubmit);
